@@ -1,0 +1,27 @@
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h4>Arctic Green Lawn</h4>
+      <p>Professional lawn care and landscaping services for your community. Quality outdoor solutions tailored to your needs.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="{{ "services/free-in-home-consultation/" | relURL }}">Free Consultation</a></li>
+        <li><a href="{{ "services/lawn-mowing-maintenance/" | relURL }}">Lawn Mowing</a></li>
+        <li><a href="{{ "services/spring-fall-cleanup/" | relURL }}">Seasonal Cleanup</a></li>
+        <li><a href="{{ "services/landscape-design-consultation/" | relURL }}">Landscape Design</a></li>
+        <li><a href="{{ "services/irrigation-system-check/" | relURL }}">Irrigation Check</a></li>
+        <li><a href="{{ "services/tree-shrub-trimming/" | relURL }}">Tree Trimming</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p><a href="tel:{{ .Site.Params.phoneRaw }}">{{ .Site.Params.phone }}</a></p>
+      <p><a href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a></p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; {{ now.Year }} Arctic Green Lawn & Landscaping. All rights reserved.
+  </div>
+</footer>

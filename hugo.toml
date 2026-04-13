@@ -1,0 +1,30 @@
+baseURL = "https://arcticgreenlandscaping.com"
+languageCode = "en-us"
+title = "Arctic Green Lawn & Landscaping"
+theme = "arctic"
+
+[params]
+  description = "Professional lawn care and landscaping services. Expert lawn mowing, seasonal cleanups, landscape design, irrigation system checks, tree and shrub trimming, and more."
+  phone = "(219) 387-6402"
+  phoneRaw = "2193876402"
+  email = "info@arcticgreenlandscaping.com"
+  tagline = "Professional Lawn Care & Landscaping Services"
+  owner = "Brayant Rodriguez"
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "Services"
+    url = "/services/"
+    weight = 2
+  [[menu.main]]
+    name = "Blog"
+    url = "/blog/"
+    weight = 3
+  [[menu.main]]
+    name = "Contact"
+    url = "/contact/"
+    weight = 4

@@ -1,0 +1,39 @@
+{{ define "main" }}
+<section class="section">
+  <div class="container">
+    <h1 class="section-title">{{ .Title }}</h1>
+    {{ with .Description }}<p class="section-subtitle">{{ . }}</p>{{ end }}
+
+    {{ if eq .Section "services" }}
+    <div class="services-grid">
+      {{ range .Pages }}
+      <div class="service-card">
+        <h3>{{ .Title }}</h3>
+        <div class="tagline">{{ .Params.tagline }}</div>
+        <span class="price">{{ .Params.price }}</span>
+        <p>{{ .Params.excerpt }}</p>
+        <a href="{{ .RelPermalink }}" class="btn btn-primary">Learn More</a>
+      </div>
+      {{ end }}
+    </div>
+    {{ else if eq .Section "blog" }}
+    <div class="blog-grid">
+      {{ range .Pages }}
+      <div class="blog-card">
+        <div class="date">{{ .Date.Format "January 2, 2006" }}</div>
+        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+        <p class="excerpt">{{ .Summary | truncate 200 }}</p>
+      </div>
+      {{ end }}
+    </div>
+    {{ else }}
+    {{ range .Pages }}
+    <div>
+      <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+      <p>{{ .Summary }}</p>
+    </div>
+    {{ end }}
+    {{ end }}
+  </div>
+</section>
+{{ end }}

@@ -1,0 +1,37 @@
+{{ define "main" }}
+
+{{ if eq .Section "services" }}
+<div class="service-detail">
+  <h1>{{ .Title }}</h1>
+  <div class="tagline">{{ .Params.tagline }}</div>
+  {{ with .Params.price }}<span class="price" style="display:inline-block;background:#e8f5e9;color:#1a5632;padding:6px 18px;border-radius:20px;font-weight:600;margin-bottom:24px;">{{ . }}</span>{{ end }}
+  <div class="content">
+    {{ .Content }}
+  </div>
+  <div style="margin-top:40px;text-align:center;">
+    <a href="{{ "contact/" | relURL }}" class="btn btn-primary">Book This Service</a>
+  </div>
+</div>
+
+{{ else if eq .Section "blog" }}
+<article class="blog-post">
+  <h1>{{ .Title }}</h1>
+  <div class="meta">{{ .Date.Format "January 2, 2006" }} &middot; {{ .ReadingTime }} min read</div>
+  <div class="content">
+    {{ .Content }}
+  </div>
+  <div style="margin-top:48px;text-align:center;">
+    <a href="{{ "blog/" | relURL }}" class="btn btn-primary">Back to Blog</a>
+  </div>
+</article>
+
+{{ else }}
+<div class="blog-post">
+  <h1>{{ .Title }}</h1>
+  <div class="content">
+    {{ .Content }}
+  </div>
+</div>
+{{ end }}
+
+{{ end }}

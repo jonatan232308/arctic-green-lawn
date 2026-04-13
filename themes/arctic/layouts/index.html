@@ -1,0 +1,90 @@
+{{ define "main" }}
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <h1>Arctic Green Lawn &amp; Landscaping</h1>
+    <p>{{ .Site.Params.tagline }}. Serving your community with personalized, quality outdoor solutions.</p>
+    <div class="hero-buttons">
+      <a href="{{ "contact/" | relURL }}" class="btn btn-primary">Get a Free Quote</a>
+      <a href="{{ "services/" | relURL }}" class="btn btn-outline">Our Services</a>
+    </div>
+  </div>
+</section>
+
+<!-- Why Choose Us -->
+<section class="section section-alt">
+  <div class="container">
+    <h2 class="section-title">Why Choose Arctic Green?</h2>
+    <p class="section-subtitle">We bring expertise, reliability, and a personal touch to every project.</p>
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon">&#127793;</div>
+        <h3>Expert Care</h3>
+        <p>Professional lawn care backed by years of experience and a passion for beautiful landscapes.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">&#128197;</div>
+        <h3>Reliable Service</h3>
+        <p>Count on us to show up on time, every time. Consistent quality you can depend on.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">&#128176;</div>
+        <h3>Fair Pricing</h3>
+        <p>Transparent, competitive pricing with no hidden fees. Free consultations available.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">&#127775;</div>
+        <h3>Personalized Solutions</h3>
+        <p>Every property is unique. We tailor our services to fit your specific needs and vision.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services Preview -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Our Services</h2>
+    <p class="section-subtitle">From routine maintenance to full landscape transformations</p>
+    <div class="services-grid">
+      {{ range (where .Site.RegularPages "Section" "services") }}
+      <div class="service-card">
+        <h3>{{ .Title }}</h3>
+        <div class="tagline">{{ .Params.tagline }}</div>
+        <span class="price">{{ .Params.price }}</span>
+        <p>{{ .Params.excerpt }}</p>
+        <a href="{{ .RelPermalink }}" class="btn btn-primary">Learn More</a>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <div class="container">
+    <h2>Ready to Transform Your Yard?</h2>
+    <p>Schedule a free in-home consultation and let us create the outdoor space you've always wanted.</p>
+    <a href="{{ "contact/" | relURL }}" class="btn btn-primary">Contact Us Today</a>
+  </div>
+</section>
+
+<!-- Latest Blog Posts -->
+<section class="section section-alt">
+  <div class="container">
+    <h2 class="section-title">Latest from the Blog</h2>
+    <p class="section-subtitle">Tips, advice, and insights for a healthier lawn</p>
+    <div class="blog-grid">
+      {{ range first 3 (where .Site.RegularPages "Section" "blog") }}
+      <div class="blog-card">
+        <div class="date">{{ .Date.Format "January 2, 2006" }}</div>
+        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+        <p class="excerpt">{{ .Summary | truncate 160 }}</p>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+{{ end }}
