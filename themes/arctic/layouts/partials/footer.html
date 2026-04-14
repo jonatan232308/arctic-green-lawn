@@ -1,8 +1,9 @@
 <footer class="site-footer">
-  <div class="footer-inner">
-    <div class="footer-col">
-      <h4>Arctic Green Lawn</h4>
-      <p>Professional lawn care and landscaping services for your community. Quality outdoor solutions tailored to your needs.</p>
+  <div class="container footer-inner">
+    <div class="footer-col footer-brand">
+      <div class="footer-logo">Arctic <span>Green</span></div>
+      <p>Family-run lawn care and landscaping serving homeowners across Northwest Houston. Licensed, insured, and obsessed with tidy edges.</p>
+      <a href="{{ "contact/" | relURL }}" class="btn btn-primary btn-sm">Get Free Quote</a>
     </div>
     <div class="footer-col">
       <h4>Services</h4>
@@ -12,16 +13,32 @@
         <li><a href="{{ "services/spring-fall-cleanup/" | relURL }}">Seasonal Cleanup</a></li>
         <li><a href="{{ "services/landscape-design-consultation/" | relURL }}">Landscape Design</a></li>
         <li><a href="{{ "services/irrigation-system-check/" | relURL }}">Irrigation Check</a></li>
-        <li><a href="{{ "services/tree-shrub-trimming/" | relURL }}">Tree Trimming</a></li>
+        <li><a href="{{ "services/tree-shrub-trimming/" | relURL }}">Tree &amp; Shrub Trimming</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Service area</h4>
+      <ul class="footer-areas">
+        <li>Cypress · Tomball</li>
+        <li>Spring · Katy</li>
+        <li>The Woodlands · Magnolia</li>
+        <li>Hockley · Waller</li>
+        <li>Jersey Village · Copperfield</li>
+        <li>Cy-Fair · Champions</li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>Contact</h4>
-      <p><a href="tel:{{ .Site.Params.phoneRaw }}">{{ .Site.Params.phone }}</a></p>
-      <p><a href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a></p>
+      <ul class="footer-contact">
+        <li><span class="footer-label">Phone</span><a href="tel:{{ .Site.Params.phoneRaw }}">{{ .Site.Params.phone }}</a></li>
+        <li><span class="footer-label">Email</span><a href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a></li>
+        <li><span class="footer-label">Hours</span>Mon–Sat · 7am–7pm</li>
+        <li><span class="footer-label">Owner</span>{{ .Site.Params.owner }}</li>
+      </ul>
     </div>
   </div>
-  <div class="footer-bottom">
-    &copy; {{ now.Year }} Arctic Green Lawn & Landscaping. All rights reserved.
+  <div class="footer-bottom container">
+    <span>&copy; {{ now.Year }} Arctic Green Lawn &amp; Landscaping. All rights reserved.</span>
+    <span class="footer-fineprint">Licensed &amp; Insured · Northwest Houston</span>
   </div>
 </footer>

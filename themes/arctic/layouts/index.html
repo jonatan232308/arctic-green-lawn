@@ -1,87 +1,167 @@
 {{ define "main" }}
 
+{{/* Lucide-style inline icons reused below */}}
+{{ $iconSprout := `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></svg>` }}
+{{ $iconScissors := `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>` }}
+{{ $iconLeaf := `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>` }}
+{{ $iconRuler := `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m15 5 4 4"/><path d="M13 7 8.7 2.7a2.41 2.41 0 0 0-3.4 0L2.7 5.3a2.41 2.41 0 0 0 0 3.4L7 13"/><path d="m8 6 2-2"/><path d="m18 16 2-2"/><path d="m17 11 4.3 4.3c.94.94.94 2.46 0 3.4l-2.6 2.6c-.94.94-2.46.94-3.4 0L11 17"/><path d="m15 14-1 1"/><path d="m11 10-1 1"/></svg>` }}
+{{ $iconDroplets := `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"/><path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97"/></svg>` }}
+{{ $iconTrees := `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10 10v.2A3 3 0 0 1 8.9 16v0H5v0h0a3 3 0 0 1-1-5.8V10a3 3 0 0 1 6 0Z"/><path d="M7 16v6"/><path d="M13 19h6"/><path d="M13 10h2l2-5 2 5h2l-3 4 3 4h-2l-2 5-2-5h-2l3-4-3-4Z"/></svg>` }}
+{{ $iconShield := `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>` }}
+{{ $iconStar := `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>` }}
+{{ $iconMapPin := `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>` }}
+{{ $iconArrow := `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>` }}
+{{ $iconClock := `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>` }}
+
+{{ $serviceIcons := dict
+  "free-in-home-consultation" $iconRuler
+  "lawn-mowing-maintenance" $iconScissors
+  "spring-fall-cleanup" $iconLeaf
+  "landscape-design-consultation" $iconSprout
+  "irrigation-system-check" $iconDroplets
+  "tree-shrub-trimming" $iconTrees
+}}
+
 <!-- Hero -->
 <section class="hero">
-  <div class="container">
-    <h1>Arctic Green Lawn &amp; Landscaping</h1>
-    <p>{{ .Site.Params.tagline }}. Serving your community with personalized, quality outdoor solutions.</p>
+  <div class="hero-bg"></div>
+  <div class="hero-scrim"></div>
+  <div class="container hero-inner">
+    <div class="hero-badges">
+      <span class="hero-badge">{{ $iconShield | safeHTML }} Licensed &amp; Insured</span>
+      <span class="hero-badge">{{ $iconMapPin | safeHTML }} Northwest Houston, TX</span>
+    </div>
+    <h1 class="hero-title">Expert lawn care<br><em>that treats your yard like ours.</em></h1>
+    <p class="hero-sub">Mowing, seasonal cleanups, landscape design and irrigation across Northwest Houston. Free in-home quotes, no pressure — just a healthier lawn.</p>
     <div class="hero-buttons">
-      <a href="{{ "contact/" | relURL }}" class="btn btn-primary">Get a Free Quote</a>
-      <a href="{{ "services/" | relURL }}" class="btn btn-outline">Our Services</a>
+      <a href="{{ "contact/" | relURL }}" class="btn btn-primary">Get Free Quote {{ $iconArrow | safeHTML }}</a>
+      <a href="tel:{{ .Site.Params.phoneRaw }}" class="btn btn-ghost">Call {{ .Site.Params.phone }}</a>
+    </div>
+    <ul class="hero-trust">
+      <li>{{ $iconMapPin | safeHTML }} Serving Northwest Houston</li>
+      <li>{{ $iconClock | safeHTML }} Same-week response</li>
+      <li>{{ $iconShield | safeHTML }} Free in-home consultation</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Stats strip -->
+<section class="stats">
+  <div class="container stats-inner">
+    <div class="stat">
+      <div class="stat-num">500<span>+</span></div>
+      <div class="stat-label">Yards serviced</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">24h</div>
+      <div class="stat-label">Typical quote turnaround</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">Free</div>
+      <div class="stat-label">In-home estimates</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">100<span>%</span></div>
+      <div class="stat-label">Satisfaction guarantee</div>
     </div>
   </div>
 </section>
 
-<!-- Why Choose Us -->
-<section class="section section-alt">
+<!-- Services -->
+<section class="section services-section">
   <div class="container">
-    <h2 class="section-title">Why Choose Arctic Green?</h2>
-    <p class="section-subtitle">We bring expertise, reliability, and a personal touch to every project.</p>
-    <div class="features">
-      <div class="feature">
-        <div class="feature-icon">&#127793;</div>
-        <h3>Expert Care</h3>
-        <p>Professional lawn care backed by years of experience and a passion for beautiful landscapes.</p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon">&#128197;</div>
-        <h3>Reliable Service</h3>
-        <p>Count on us to show up on time, every time. Consistent quality you can depend on.</p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon">&#128176;</div>
-        <h3>Fair Pricing</h3>
-        <p>Transparent, competitive pricing with no hidden fees. Free consultations available.</p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon">&#127775;</div>
-        <h3>Personalized Solutions</h3>
-        <p>Every property is unique. We tailor our services to fit your specific needs and vision.</p>
-      </div>
+    <div class="section-head">
+      <span class="eyebrow">What we do</span>
+      <h2 class="section-title">Services built for every season</h2>
+      <p class="section-subtitle">From weekly mowing to full landscape transformations — one call covers the whole yard.</p>
     </div>
-  </div>
-</section>
-
-<!-- Services Preview -->
-<section class="section">
-  <div class="container">
-    <h2 class="section-title">Our Services</h2>
-    <p class="section-subtitle">From routine maintenance to full landscape transformations</p>
     <div class="services-grid">
       {{ range (where .Site.RegularPages "Section" "services") }}
-      <div class="service-card">
+      {{ $slug := .File.BaseFileName }}
+      {{ $icon := index $serviceIcons $slug | default $iconSprout }}
+      <a href="{{ .RelPermalink }}" class="service-card">
+        <span class="service-icon">{{ $icon | safeHTML }}</span>
         <h3>{{ .Title }}</h3>
-        <div class="tagline">{{ .Params.tagline }}</div>
-        <span class="price">{{ .Params.price }}</span>
+        {{ with .Params.tagline }}<div class="service-tagline">{{ . }}</div>{{ end }}
+        {{ with .Params.price }}<span class="service-price">{{ . }}</span>{{ end }}
         <p>{{ .Params.excerpt }}</p>
-        <a href="{{ .RelPermalink }}" class="btn btn-primary">Learn More</a>
-      </div>
+        <span class="service-link">Learn more {{ $iconArrow | safeHTML }}</span>
+      </a>
       {{ end }}
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta-banner">
-  <div class="container">
-    <h2>Ready to Transform Your Yard?</h2>
-    <p>Schedule a free in-home consultation and let us create the outdoor space you've always wanted.</p>
-    <a href="{{ "contact/" | relURL }}" class="btn btn-primary">Contact Us Today</a>
+<!-- Why choose us -->
+<section class="section section-alt why-section">
+  <div class="container why-grid">
+    <div class="why-copy">
+      <span class="eyebrow">Why Arctic Green</span>
+      <h2 class="section-title left">A local crew that actually shows up.</h2>
+      <p class="lede">Lawn care shouldn't be a guessing game. We answer the phone, show up when we say we will, and leave every yard looking sharper than we found it.</p>
+      <ul class="why-list">
+        <li><span class="tick">{{ $iconShield | safeHTML }}</span><div><strong>Licensed, insured and local.</strong><br>Owner-operated in Northwest Houston — every crew trained in-house.</div></li>
+        <li><span class="tick">{{ $iconClock | safeHTML }}</span><div><strong>Same-week estimates.</strong><br>Submit a request before noon and we'll have your quote out fast.</div></li>
+        <li><span class="tick">{{ $iconStar | safeHTML }}</span><div><strong>Guaranteed results.</strong><br>Not happy with the cut? We'll come back the next day — no questions.</div></li>
+      </ul>
+      <a href="{{ "contact/" | relURL }}" class="btn btn-primary">Book a free consultation {{ $iconArrow | safeHTML }}</a>
+    </div>
+    <div class="why-photo">
+      <div class="why-photo-main"></div>
+      <div class="why-photo-badge">
+        {{ $iconShield | safeHTML }}
+        <span><strong>Licensed</strong> &amp; Insured</span>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- Latest Blog Posts -->
-<section class="section section-alt">
+<!-- Service area -->
+<section class="section section-alt service-area">
   <div class="container">
-    <h2 class="section-title">Latest from the Blog</h2>
-    <p class="section-subtitle">Tips, advice, and insights for a healthier lawn</p>
+    <div class="section-head">
+      <span class="eyebrow">Service area</span>
+      <h2 class="section-title">Proudly serving Northwest Houston</h2>
+      <p class="section-subtitle">Not sure if you're in our zone? Give us a call — we travel further than the map suggests.</p>
+    </div>
+    <ul class="area-list">
+      <li>Cypress</li><li>Tomball</li><li>Spring</li><li>Katy</li>
+      <li>The Woodlands</li><li>Magnolia</li><li>Hockley</li><li>Waller</li>
+      <li>Jersey Village</li><li>Copperfield</li><li>Cy-Fair</li><li>Champions</li>
+    </ul>
+  </div>
+</section>
+
+<!-- CTA banner -->
+<section class="cta-banner">
+  <div class="container cta-inner">
+    <div>
+      <h2>Ready for a yard you're proud of?</h2>
+      <p>Free in-home consultation. No pressure, no hidden fees.</p>
+    </div>
+    <div class="cta-actions">
+      <a href="{{ "contact/" | relURL }}" class="btn btn-primary">Get Free Quote</a>
+      <a href="tel:{{ .Site.Params.phoneRaw }}" class="btn btn-ghost">Call {{ .Site.Params.phone }}</a>
+    </div>
+  </div>
+</section>
+
+<!-- Blog -->
+<section class="section blog-section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Lawn care journal</span>
+      <h2 class="section-title">Tips from the crew</h2>
+      <p class="section-subtitle">Seasonal advice, maintenance checklists and honest answers to the questions we get asked most.</p>
+    </div>
     <div class="blog-grid">
       {{ range first 3 (where .Site.RegularPages "Section" "blog") }}
-      <div class="blog-card">
-        <div class="date">{{ .Date.Format "January 2, 2006" }}</div>
-        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-        <p class="excerpt">{{ .Summary | truncate 160 }}</p>
-      </div>
+      <a href="{{ .RelPermalink }}" class="blog-card">
+        <div class="blog-meta">{{ .Date.Format "Jan 2, 2006" }} · {{ math.Ceil (div (countwords .Content) 200.0) }} min read</div>
+        <h3>{{ .Title }}</h3>
+        <p class="excerpt">{{ .Summary | truncate 140 }}</p>
+        <span class="service-link">Read article {{ $iconArrow | safeHTML }}</span>
+      </a>
       {{ end }}
     </div>
   </div>
