@@ -1,15 +1,20 @@
 baseURL = "https://arcticgreenlandscaping.com"
 languageCode = "en-us"
-title = "Arctic Green Lawn & Landscaping"
+title = "Arctic Green Lawn & Landscape"
 theme = "arctic"
 
+enableRobotsTXT = false
+enableGitInfo = false
+
 [params]
-  description = "Professional lawn care and landscaping services. Expert lawn mowing, seasonal cleanups, landscape design, irrigation system checks, tree and shrub trimming, and more."
+  description = "Professional lawn care and landscaping in Northwest Houston, TX. Mowing, seasonal cleanups, landscape design, irrigation, and tree & shrub trimming. Free in-home quotes — licensed & insured."
   phone = "(903) 658-8244"
   phoneRaw = "9036588244"
   email = "agl1025@yahoo.com"
-  tagline = "Professional Lawn Care & Landscaping Services"
-  owner = "Brayant Rodriguez"
+  tagline = "Professional Lawn Care & Landscape Services"
+  owner = "Norbert Rodriguez"
+  gbpUrl = "https://www.google.com/search?sca_esv=b81e1b9584c528ab&authuser=1&sxsrf=ANbL-n4RFY4ztqof63Ye3WHfVuEuwIujsQ%3A1776318017760&q=Arctic%20Green%20Lawn%20%26%20Landscape%20LLC&stick=H4sIAAAAAAAAAONgU1I1qLAwMzE0SjEzMUg1Nkk2MEuzMqgwSzZNSTQ1TDNLSTNMSkyzWMSq6FiUXJKZrOBelJqap-CTWJ6noAak8lKKkxMLUhV8fJwBUoUG500AAAA&mat=CUHbz4sCv-CW&ved=2ahUKEwi-sdOj1PGTAxU-mmoFHZyaGIsQrMcEegQIFRAC"
+  ogImage = "images/og-image.jpg"
 
 [menu]
   [[menu.main]]
@@ -21,10 +26,14 @@ theme = "arctic"
     url = "/services/"
     weight = 2
   [[menu.main]]
+    name = "Service Areas"
+    url = "/areas/"
+    weight = 3
+  [[menu.main]]
     name = "Blog"
     url = "/blog/"
-    weight = 3
+    weight = 4
   [[menu.main]]
     name = "Contact"
     url = "/contact/"
-    weight = 4
+    weight = 5

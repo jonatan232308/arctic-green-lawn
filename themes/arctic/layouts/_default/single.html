@@ -25,6 +25,50 @@
   </div>
 </article>
 
+{{ else if eq .Section "areas" }}
+<section class="area-hero">
+  <div class="container area-hero-inner">
+    <a href="{{ "areas/" | relURL }}" class="back-link">← All service areas</a>
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.intro }}<p class="area-intro">{{ . }}</p>{{ end }}
+    <div class="hero-buttons">
+      <a href="{{ "contact/" | relURL }}" class="btn btn-primary">Get a Free Quote</a>
+      <a href="tel:{{ .Site.Params.phoneRaw }}" class="btn btn-outline">Call {{ .Site.Params.phone }}</a>
+    </div>
+    {{ with .Params.neighborhoods }}
+    <ul class="neighborhood-chips">
+      {{ range . }}<li>{{ . }}</li>{{ end }}
+    </ul>
+    {{ end }}
+  </div>
+</section>
+
+<section class="section">
+  <div class="container area-content">
+    <div class="area-body">
+      {{ .Content }}
+    </div>
+    <aside class="area-cta-card">
+      <h3>Ready when you are.</h3>
+      <p>Free in-home estimate. Same-week scheduling for most {{ .Params.city }} requests.</p>
+      <a href="{{ "contact/" | relURL }}" class="btn btn-primary btn-block">Get Free Quote</a>
+      <a href="tel:{{ .Site.Params.phoneRaw }}" class="btn btn-ghost-dark btn-block">Call {{ .Site.Params.phone }}</a>
+      <div class="area-cta-trust">Licensed &amp; insured · Owner-operated · No upsells</div>
+    </aside>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Lawn Care and Landscaping",
+  "provider": { "@id": "{{ .Site.BaseURL }}#business" },
+  "areaServed": { "@type": "City", "name": "{{ .Params.city }}, {{ .Params.state }}" },
+  "url": "{{ .Permalink }}"
+}
+</script>
+
 {{ else }}
 <div class="blog-post">
   <h1>{{ .Title }}</h1>

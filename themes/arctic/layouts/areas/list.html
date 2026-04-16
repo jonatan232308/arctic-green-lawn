@@ -1,0 +1,20 @@
+{{ define "main" }}
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Service area</span>
+      <h1 class="section-title">Lawn care across Northwest Houston</h1>
+      <p class="section-subtitle">{{ .Description }}</p>
+    </div>
+    <div class="areas-grid">
+      {{ range .Pages }}
+      <a href="{{ .RelPermalink }}" class="area-card">
+        <h3>{{ .Title }}</h3>
+        {{ with .Params.intro }}<p>{{ . | truncate 160 }}</p>{{ end }}
+        <span class="service-link">View {{ .Params.city }} →</span>
+      </a>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
