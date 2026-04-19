@@ -16,11 +16,12 @@
 
   <div class="contact-form">
     <h2>Send Us a Message</h2>
-    <form action="https://formsubmit.co/agl1025@yahoo.com" method="POST">
-      <input type="hidden" name="_subject" value="New inquiry from Arctic Green website">
-      <input type="hidden" name="_captcha" value="true">
-      <input type="hidden" name="_next" value="https://arcticgreenlandscaping.com/contact/">
-      <input type="text" name="_honey" style="display:none">
+    <form action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="04dcb597-9718-4f6d-a4bf-7aeb5954ca58">
+      <input type="hidden" name="subject" value="New inquiry from Arctic Green website">
+      <input type="hidden" name="from_name" value="Arctic Green Website">
+      <input type="hidden" name="redirect" value="https://arcticgreenlandscaping.com/contact/">
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
       <div class="form-group">
         <label for="name">Name *</label>
         <input type="text" id="name" name="name" required>
