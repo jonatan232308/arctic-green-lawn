@@ -12,6 +12,7 @@
 {{ $iconMapPin := `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>` }}
 {{ $iconArrow := `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>` }}
 {{ $iconClock := `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>` }}
+{{ $iconPath := `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>` }}
 
 {{ $serviceIcons := dict
   "free-in-home-consultation" $iconRuler
@@ -20,6 +21,7 @@
   "landscape-design-consultation" $iconSprout
   "irrigation-system-check" $iconDroplets
   "tree-shrub-trimming" $iconTrees
+  "hardscape-paver-walkways" $iconPath
 }}
 
 <!-- Hero -->
@@ -79,15 +81,45 @@
       {{ range (where .Site.RegularPages "Section" "services") }}
       {{ $slug := .File.BaseFileName }}
       {{ $icon := index $serviceIcons $slug | default $iconSprout }}
-      <a href="{{ .RelPermalink }}" class="service-card">
-        <span class="service-icon">{{ $icon | safeHTML }}</span>
-        <h3>{{ .Title }}</h3>
-        {{ with .Params.tagline }}<div class="service-tagline">{{ . }}</div>{{ end }}
-        {{ with .Params.price }}<span class="service-price">{{ . }}</span>{{ end }}
-        <p>{{ .Params.excerpt }}</p>
-        <span class="service-link">Learn more {{ $iconArrow | safeHTML }}</span>
+      <a href="{{ .RelPermalink }}" class="service-card{{ if .Params.image }} service-card--photo{{ end }}">
+        {{ with .Params.image }}
+        <div class="service-thumb" style="background-image:url('{{ . }}')"></div>
+        {{ end }}
+        <div class="service-body">
+          <span class="service-icon">{{ $icon | safeHTML }}</span>
+          <h3>{{ .Title }}</h3>
+          {{ with .Params.tagline }}<div class="service-tagline">{{ . }}</div>{{ end }}
+          {{ with .Params.price }}<span class="service-price">{{ . }}</span>{{ end }}
+          <p>{{ .Params.excerpt }}</p>
+          <span class="service-link">Learn more {{ $iconArrow | safeHTML }}</span>
+        </div>
       </a>
       {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- Recent work / social proof -->
+<section class="section recent-work">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Recent work</span>
+      <h2 class="section-title">Homes and businesses across Northwest Houston</h2>
+      <p class="section-subtitle">A sampling of yards and commercial properties we've maintained or transformed.</p>
+    </div>
+    <div class="recent-grid">
+      <figure class="recent-card">
+        <div class="recent-photo" style="background-image:url('/images/commercial-1.jpg')"></div>
+        <figcaption>Stoller Foundation · Commercial entrance</figcaption>
+      </figure>
+      <figure class="recent-card">
+        <div class="recent-photo" style="background-image:url('/images/commercial-2.jpg')"></div>
+        <figcaption>Commercial parking landscape</figcaption>
+      </figure>
+      <figure class="recent-card">
+        <div class="recent-photo" style="background-image:url('/images/commercial-3.jpg')"></div>
+        <figcaption>Tree line &amp; rock bed maintenance</figcaption>
+      </figure>
     </div>
   </div>
 </section>

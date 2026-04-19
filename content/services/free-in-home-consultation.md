@@ -3,6 +3,7 @@ title: "Free In-Home Consultation"
 tagline: "Experience a Personalized Approach with Our Free In-Home Consultation"
 price: "Free"
 excerpt: "Our team visits your home to discuss your ideas and goals, offering expert advice and personalized solutions for your outdoor space."
+image: "/images/svc-consultation.jpg"
 weight: 1
 ---
 

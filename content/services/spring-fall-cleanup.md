@@ -3,6 +3,7 @@ title: "Spring & Fall Cleanup"
 tagline: "Seasonal Yard Cleanup to Keep Your Property Looking Sharp"
 price: "Price varies by property size"
 excerpt: "Comprehensive cleanup service to prepare your yard for the season ahead, whether clearing fall leaves or getting spring-ready."
+image: "/images/svc-cleanup.jpg"
 weight: 3
 ---
 

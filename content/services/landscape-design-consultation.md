@@ -3,6 +3,7 @@ title: "Landscape Design Consultation"
 tagline: "Custom Landscape Design Tailored to Your Vision"
 price: "Starting at $150 - applied to project cost"
 excerpt: "Transform your outdoor space with a professional landscape design consultation. Custom plan that fits your vision, budget, and property."
+image: "/images/svc-design.jpg"
 weight: 4
 ---
 

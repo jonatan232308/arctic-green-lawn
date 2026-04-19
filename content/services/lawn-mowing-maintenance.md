@@ -3,6 +3,7 @@ title: "Lawn Mowing & Maintenance"
 tagline: "Professional Lawn Mowing & Maintenance for a Picture-Perfect Yard"
 price: "Price varies by yard size"
 excerpt: "Regular mowing, edging, trimming, and blowing to ensure a clean, well-manicured yard every time."
+image: "/images/svc-mowing.jpg"
 weight: 2
 ---
 

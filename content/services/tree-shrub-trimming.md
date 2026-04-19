@@ -3,6 +3,7 @@ title: "Tree & Shrub Trimming"
 tagline: "Professional Tree & Shrub Trimming for a Polished Landscape"
 price: "Price varies by scope of work"
 excerpt: "Keep your trees and shrubs healthy, shaped, and looking great with professional pruning that promotes healthy growth."
+image: "/images/svc-trimming.jpg"
 weight: 6
 ---
 

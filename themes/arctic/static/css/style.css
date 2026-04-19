@@ -330,8 +330,8 @@ nav a.active::after {
 .hero-scrim {
   position: absolute; inset: 0;
   background:
-    linear-gradient(180deg, rgba(15,58,34,0.72) 0%, rgba(15,58,34,0.55) 45%, rgba(15,58,34,0.85) 100%),
-    radial-gradient(ellipse at 70% 30%, rgba(63,169,104,0.25), transparent 60%);
+    linear-gradient(95deg, rgba(15,58,34,0.78) 0%, rgba(15,58,34,0.55) 45%, rgba(15,58,34,0.15) 85%),
+    linear-gradient(180deg, transparent 55%, rgba(15,58,34,0.55) 100%);
   z-index: -1;
 }
 .hero-inner { position: relative; max-width: 900px; }
@@ -446,6 +446,92 @@ nav a.active::after {
   position: relative;
   overflow: hidden;
 }
+.service-card--photo {
+  padding: 0;
+}
+.service-card--photo .service-body {
+  padding: 24px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+.service-card--photo .service-icon {
+  margin-top: -48px;
+  margin-bottom: 16px;
+  background: var(--white);
+  box-shadow: var(--shadow-lg);
+  width: 64px;
+  height: 64px;
+  border: 1px solid var(--line);
+}
+.service-thumb {
+  width: 100%;
+  aspect-ratio: 4/3;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--stone-100);
+}
+
+.recent-work {
+  background: var(--white);
+}
+.recent-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 8px;
+}
+.recent-card {
+  margin: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background: var(--white);
+  border: 1px solid var(--line);
+  transition: transform .25s, box-shadow .25s;
+}
+.recent-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+.recent-photo {
+  aspect-ratio: 4/3;
+  background-size: cover;
+  background-position: center;
+}
+.recent-card figcaption {
+  padding: 14px 18px;
+  color: var(--ink-700);
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+@media (max-width: 760px) {
+  .recent-grid { grid-template-columns: 1fr; }
+}
+
+.service-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 40px 0 10px;
+}
+.service-gallery-item {
+  aspect-ratio: 4/3;
+  background-size: cover;
+  background-position: center;
+  border-radius: var(--radius);
+  background-color: var(--stone-100);
+  box-shadow: var(--shadow);
+}
+.service-gallery-item:first-child {
+  grid-column: 1 / -1;
+  aspect-ratio: 16/9;
+}
+@media (max-width: 760px) {
+  .service-gallery { grid-template-columns: repeat(2, 1fr); }
+  .service-gallery-item:first-child { grid-column: 1 / -1; }
+}
 .service-card::before {
   content: '';
   position: absolute;
@@ -547,7 +633,7 @@ nav a.active::after {
   position: absolute;
   inset: 0;
   border-radius: var(--radius-lg);
-  background-image: url('/images/hero-lawn.jpg');
+  background-image: url('/images/why-us-tree.jpg');
   background-size: cover;
   background-position: center;
   box-shadow: var(--shadow-lg);

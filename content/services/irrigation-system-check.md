@@ -3,6 +3,7 @@ title: "Irrigation System Check"
 tagline: "Keep Your Irrigation System Running Efficiently"
 price: "Starting at $75"
 excerpt: "Professional irrigation inspection, adjustment, and repair to prevent water waste and keep your lawn healthy."
+image: "/images/svc-irrigation.jpg"
 weight: 5
 ---
 
