@@ -3,6 +3,15 @@
   <h1>Get In Touch</h1>
   <p class="subtitle">Ready to transform your outdoor space? Reach out for a free consultation or quote.</p>
 
+  <div id="form-thanks" style="display:none; margin:1.5rem 0; padding:1rem 1.25rem; background:#e8f5e9; border-left:4px solid var(--green-700, #2e7d32); border-radius:6px; color:#1b5e20; font-weight:500;">
+    Thanks! We got your message and will be in touch shortly.
+  </div>
+  <script>
+    if (new URLSearchParams(window.location.search).get('sent') === '1') {
+      document.getElementById('form-thanks').style.display = 'block';
+    }
+  </script>
+
   <div class="contact-info">
     <div class="contact-item">
       <div class="label">Phone</div>
@@ -16,11 +25,8 @@
 
   <div class="contact-form">
     <h2>Send Us a Message</h2>
-    <form action="https://api.web3forms.com/submit" method="POST">
-      <input type="hidden" name="access_key" value="04dcb597-9718-4f6d-a4bf-7aeb5954ca58">
-      <input type="hidden" name="subject" value="New inquiry from Arctic Green website">
-      <input type="hidden" name="from_name" value="Arctic Green Website">
-      <input type="hidden" name="redirect" value="https://arcticgreenlandscaping.com/contact/">
+    <form action="https://arctic-green-voice-caller.fly.dev/form-submit" method="POST">
+      <input type="hidden" name="redirect" value="https://arcticgreenlandscaping.com/contact/?sent=1">
       <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
       <div class="form-group">
         <label for="name">Name *</label>
