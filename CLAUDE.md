@@ -30,7 +30,7 @@ Push to `master` — GitHub Actions builds and deploys automatically. Check stat
 - `hugo.toml` — Site config (title, contact info, menus)
 
 ## Key info
-- Owner: Brayant Rodriguez
+- Owner: Norbert Rodriguez
 - Phone: (903) 658-8244
 - Email: agl1025@yahoo.com
 - Service area: Northwest Houston, TX — Cypress, Tomball, Spring, Katy, The Woodlands, Magnolia, Hockley, Waller, Jersey Village, Copperfield, Cy-Fair, Champions
@@ -53,3 +53,19 @@ Push to `master` — GitHub Actions builds and deploys automatically. Check stat
 - Full homepage rebuild: photographic hero, stats strip, service cards with icons, why-us section with photo + licensed/insured badge, service-area chip grid, CTA banner, blog strip, richer footer.
 - Business relocated from Northwest Indiana → Northwest Houston, TX. Phone, tagline, testimonial attribution, service-area list, and footer all updated.
 - All star-rating / review claims removed.
+
+## SEO program (Jono Catliff framework — adopted 2026-04-30)
+
+Two tactics in play:
+
+1. **Service × city zipper pages** (money keywords) — `content/service-areas/<service>-<city>.md`. Target 30 pages over 3 months.
+2. **Informational blog cluster** (topical authority) — `content/blog/<slug>.md`. Target 30 new posts over 3 months.
+
+Skills + voice files live in `.claude/`:
+- `.claude/skills/service-page/SKILL.md` — `/service-page` generator
+- `.claude/skills/blog-post/SKILL.md` — `/blog-post` generator
+- `.claude/seo/voice/` — voice.md, humor.md, stats.md, stories.md, opinions.md (read by both skills)
+- `.claude/seo/keywords/seed-list.md` — keyword bank (validate w/ SEMrush when ready)
+- `.claude/seo/published-log.md` — cadence guard, never >5 publishes/day
+
+Framework reference: `~/wiki/wiki/jono-catliff-claude-code-seo-2026.md`

@@ -814,7 +814,7 @@ nav a.active::after {
   opacity: 0.92;
 }
 .footer-brand p { margin-bottom: 22px; line-height: 1.6; font-size: 0.95rem; max-width: 340px; }
-.footer-col h4 {
+.footer-col h4, .footer-col .footer-heading {
   color: var(--white);
   font-family: var(--sans);
   font-size: 0.82rem;
