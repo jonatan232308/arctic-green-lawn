@@ -72,7 +72,7 @@ What we do guarantee:
 
 ### How much does lawn mowing cost in Cypress, TX?
 
-Most Cypress weekly mowing routes fall between [TODO — confirm with Norbert] depending on yard size. Towne Lake estate lots run higher. Bridgeland zero-lot-line lots run lower. We give a fixed weekly quote — no per-visit surprises.
+Price depends on yard size, frequency, and what's included. Towne Lake estate lots run higher. Bridgeland zero-lot-line lots run lower. We give a fixed weekly quote in writing — no per-visit surprises, no annual contracts. Submit a request and we'll send a price by Friday.
 
 ### How often should I mow in Cypress?
 
