@@ -9,6 +9,11 @@
   <script>
     if (new URLSearchParams(window.location.search).get('sent') === '1') {
       document.getElementById('form-thanks').style.display = 'block';
+      {{ with .Site.Params.googleAdsLeadLabel }}
+      if (typeof gtag === 'function') {
+        gtag('event', 'conversion', {'send_to': '{{ . }}'});
+      }
+      {{ end }}
     }
   </script>
 

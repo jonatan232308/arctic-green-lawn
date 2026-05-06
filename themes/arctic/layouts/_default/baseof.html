@@ -48,6 +48,26 @@
 
   <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
 
+  {{/* Google Ads conversion tracking — only loads when googleAdsId is set in hugo.toml */}}
+  {{ with .Site.Params.googleAdsId }}
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '{{ . }}');
+    {{ with $.Site.Params.googleAdsCallLabel }}
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('a[href^="tel:"]').forEach(function(el) {
+        el.addEventListener('click', function() {
+          gtag('event', 'conversion', {'send_to': '{{ . }}'});
+        });
+      });
+    });
+    {{ end }}
+  </script>
+  {{ end }}
+
   {{/* LocalBusiness JSON-LD */}}
   <script type="application/ld+json">
   {

@@ -16,6 +16,14 @@ enableGitInfo = false
   gbpUrl = "https://www.google.com/search?sca_esv=b81e1b9584c528ab&authuser=1&sxsrf=ANbL-n4RFY4ztqof63Ye3WHfVuEuwIujsQ%3A1776318017760&q=Arctic%20Green%20Lawn%20%26%20Landscape%20LLC&stick=H4sIAAAAAAAAAONgU1I1qLAwMzE0SjEzMUg1Nkk2MEuzMqgwSzZNSTQ1TDNLSTNMSkyzWMSq6FiUXJKZrOBelJqap-CTWJ6noAak8lKKkxMLUhV8fJwBUoUG500AAAA&mat=CUHbz4sCv-CW&ved=2ahUKEwi-sdOj1PGTAxU-mmoFHZyaGIsQrMcEegQIFRAC"
   ogImage = "images/og-image.jpg"
 
+  # Google Ads conversion tracking. Fill in once Norbert provides IDs from Ads dashboard.
+  # googleAdsId         = "AW-XXXXXXXXXX"             # gtag account ID
+  # googleAdsLeadLabel  = "AW-XXXXXXXXXX/abcDefGhIj"  # form-submit conversion label
+  # googleAdsCallLabel  = "AW-XXXXXXXXXX/klmNopQrSt"  # tap-to-call conversion label
+  googleAdsId         = ""
+  googleAdsLeadLabel  = ""
+  googleAdsCallLabel  = ""
+
 [menu]
   [[menu.main]]
     name = "Home"
@@ -34,6 +42,10 @@ enableGitInfo = false
     url = "/blog/"
     weight = 4
   [[menu.main]]
+    name = "About"
+    url = "/about/"
+    weight = 5
+  [[menu.main]]
     name = "Contact"
     url = "/contact/"
-    weight = 5
+    weight = 6

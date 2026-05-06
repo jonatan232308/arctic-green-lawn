@@ -1,0 +1,25 @@
+# Real Google reviews. Set published: true once verified + permission obtained.
+# Pull from: https://www.google.com/search?q=Arctic+Green+Lawn+%26+Landscape+LLC
+# Rule: only verbatim quotes from real reviewers. No invented testimonials.
+
+reviews:
+  - quote: ""
+    author: ""
+    location: ""
+    date: ""
+    source: "Google"
+    published: false
+
+  - quote: ""
+    author: ""
+    location: ""
+    date: ""
+    source: "Google"
+    published: false
+
+  - quote: ""
+    author: ""
+    location: ""
+    date: ""
+    source: "Google"
+    published: false

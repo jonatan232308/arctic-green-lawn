@@ -8,9 +8,25 @@
   <div class="content">
     {{ .Content }}
   </div>
-  {{ with .Params.gallery }}
+  {{/* Photo gallery — auto-discovers JPG/PNG/WEBP files in static/images/work/<slug>/ */}}
+  {{ $slug := .File.BaseFileName }}
+  {{ $workDir := printf "static/images/work/%s" $slug }}
+  {{ $autoFiles := slice }}
+  {{ if fileExists $workDir }}
+    {{ range readDir $workDir }}
+      {{ if not .IsDir }}
+        {{ $ext := lower (path.Ext .Name) }}
+        {{ if in (slice ".jpg" ".jpeg" ".png" ".webp") $ext }}
+          {{ $autoFiles = $autoFiles | append (dict "src" (printf "/images/work/%s/%s" $slug .Name) "alt" (printf "%s — Arctic Green work sample" $.Title)) }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+  {{ $manual := .Params.gallery }}
+  {{ $items := cond (gt (len $autoFiles) 0) $autoFiles ($manual | default slice) }}
+  {{ if gt (len $items) 0 }}
   <div class="service-gallery">
-    {{ range . }}
+    {{ range $items }}
     <div class="service-gallery-item" style="background-image:url('{{ .src }}')" {{ with .alt }}aria-label="{{ . }}"{{ end }}></div>
     {{ end }}
   </div>

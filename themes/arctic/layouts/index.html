@@ -124,6 +124,8 @@
   </div>
 </section>
 
+{{ partial "testimonials.html" . }}
+
 <!-- Why choose us -->
 <section class="section section-alt why-section">
   <div class="container why-grid">
@@ -157,9 +159,18 @@
       <p class="section-subtitle">Not sure if you're in our zone? Give us a call — we travel further than the map suggests.</p>
     </div>
     <ul class="area-list">
-      <li>Cypress</li><li>Tomball</li><li>Spring</li><li>Katy</li>
-      <li>The Woodlands</li><li>Magnolia</li><li>Hockley</li><li>Waller</li>
-      <li>Jersey Village</li><li>Copperfield</li><li>Cy-Fair</li><li>Champions</li>
+      <li><a href="{{ "areas/cypress/" | relURL }}">Cypress</a></li>
+      <li><a href="{{ "areas/tomball/" | relURL }}">Tomball</a></li>
+      <li><a href="{{ "areas/spring/" | relURL }}">Spring</a></li>
+      <li><a href="{{ "areas/katy/" | relURL }}">Katy</a></li>
+      <li><a href="{{ "areas/the-woodlands/" | relURL }}">The Woodlands</a></li>
+      <li><a href="{{ "areas/magnolia/" | relURL }}">Magnolia</a></li>
+      <li><a href="{{ "areas/hockley/" | relURL }}">Hockley</a></li>
+      <li><a href="{{ "areas/waller/" | relURL }}">Waller</a></li>
+      <li><a href="{{ "areas/jersey-village/" | relURL }}">Jersey Village</a></li>
+      <li><a href="{{ "areas/copperfield/" | relURL }}">Copperfield</a></li>
+      <li><a href="{{ "areas/cy-fair/" | relURL }}">Cy-Fair</a></li>
+      <li><a href="{{ "areas/champions/" | relURL }}">Champions</a></li>
     </ul>
   </div>
 </section>

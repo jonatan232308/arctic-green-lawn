@@ -1,0 +1,24 @@
+{{ $published := where (index hugo.Data "testimonials").reviews "published" true }}
+{{ if gt (len $published) 0 }}
+<section class="section testimonials-section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">What customers say</span>
+      <h2 class="section-title">Honest words from real Northwest Houston yards</h2>
+    </div>
+    <div class="testimonials-grid">
+      {{ range $published }}
+      <figure class="testimonial-card">
+        <blockquote>{{ .quote }}</blockquote>
+        <figcaption>
+          <strong>{{ .author }}</strong>
+          {{ with .location }}<span class="testimonial-loc">{{ . }}</span>{{ end }}
+          <span class="testimonial-source">via {{ .source }}{{ with .date }} · {{ . }}{{ end }}</span>
+        </figcaption>
+      </figure>
+      {{ end }}
+    </div>
+    <p class="testimonials-cta"><a href="{{ .Site.Params.gbpUrl }}" target="_blank" rel="noopener">Read more reviews on Google &rarr;</a></p>
+  </div>
+</section>
+{{ end }}
