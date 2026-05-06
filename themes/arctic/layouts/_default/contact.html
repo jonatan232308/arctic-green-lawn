@@ -30,9 +30,16 @@
 
   <div class="contact-form">
     <h2>Send Us a Message</h2>
-    <form action="https://arctic-green-voice-caller.fly.dev/form-submit" method="POST">
+    <form id="contactForm" action="https://arctic-green-voice-caller.fly.dev/form-submit" method="POST" onsubmit="return validateContact(this)">
       <input type="hidden" name="redirect" value="https://arcticgreenlandscaping.com/contact/?sent=1">
       <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+      <div style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden" aria-hidden="true">
+        <label>Website (leave blank)</label>
+        <input type="text" name="website" tabindex="-1" autocomplete="off">
+        <label>Company URL (leave blank)</label>
+        <input type="url" name="url" tabindex="-1" autocomplete="off">
+      </div>
+      <input type="hidden" name="form_loaded_at" id="form_loaded_at" value="">
       <div class="form-group">
         <label for="name">Name *</label>
         <input type="text" id="name" name="name" required>
@@ -63,6 +70,34 @@
       </div>
       <button type="submit" class="btn btn-primary">Send Message</button>
     </form>
+    <script>
+      (function(){
+        var loadedAt = Date.now();
+        var ts = document.getElementById('form_loaded_at');
+        if (ts) ts.value = String(loadedAt);
+      })();
+      function validateContact(form){
+        var hp1 = form.querySelector('input[name="website"]');
+        var hp2 = form.querySelector('input[name="url"]');
+        var bc  = form.querySelector('input[name="botcheck"]');
+        if ((hp1 && hp1.value) || (hp2 && hp2.value) || (bc && bc.checked)) {
+          return false;
+        }
+        var loadedAt = parseInt(form.querySelector('input[name="form_loaded_at"]').value || '0', 10);
+        if (!loadedAt || (Date.now() - loadedAt) < 3000) {
+          return false;
+        }
+        var name = (form.querySelector('input[name="name"]').value || '').trim();
+        var msg  = (form.querySelector('textarea[name="message"]').value || '').trim();
+        var spamRe = /\b(robertjak|robertjax|robertdup|williejak|stevenjak|jamesvon|kevinhew)\b/i;
+        var urlCount = (msg.match(/https?:\/\//gi) || []).length;
+        var cyrillic = /[Ѐ-ӿ]/.test(name + ' ' + msg);
+        if (spamRe.test(name) || urlCount >= 2 || cyrillic) {
+          return false;
+        }
+        return true;
+      }
+    </script>
   </div>
 </div>
 {{ end }}
