@@ -19,6 +19,19 @@ Never exceed 5 publishes/day. Google flags spike → ban risk.
 | Date | Type | Slug | Primary keyword | Notes |
 |---|---|---|---|---|
 | 2026-04-30 | _scaffold_ | (skills + voice files created, no pages yet) | — | Phase 1A setup |
+| 2026-04-30 | service-area | lawn-mowing-cypress-tx | lawn mowing cypress tx | Live, Lighthouse 100/100/100 |
+| 2026-04-30 | service-area | lawn-mowing-tomball-tx | lawn mowing tomball tx | Live |
+| 2026-04-30 | service-area | lawn-mowing-the-woodlands-tx | lawn mowing the woodlands tx | Live |
+| 2026-04-30 | service-area | lawn-mowing-katy-tx | lawn mowing katy tx | Live |
+| 2026-04-30 | service-area | landscape-design-cypress-tx | landscape design cypress tx | Live |
+| 2026-05-19 | service-area | lawn-mowing-spring-tx | lawn mowing spring tx | Shipped (Jono cadence: 1/5 today) |
+| 2026-05-19 | service-area | lawn-mowing-magnolia-tx | lawn mowing magnolia tx | Shipped (Jono cadence: 2/5 today) |
+| 2026-05-19 | service-area | lawn-mowing-hockley-tx | lawn mowing hockley tx | Shipped (Jono cadence: 3/5 today) |
+| 2026-05-19 | service-area | landscape-design-katy-tx | landscape design katy tx | Shipped (Jono cadence: 4/5 today) |
+| 2026-05-19 | service-area | landscape-design-tomball-tx | landscape design tomball tx | Shipped (Jono cadence: 5/5 today — cap hit) |
+| 2026-05-20 | service-area | landscape-design-the-woodlands-tx | landscape design the woodlands tx | Staged uncommitted — cadence-deferred from 2026-05-19 |
+| 2026-05-20 | service-area | irrigation-check-cypress-tx | irrigation check cypress tx | Staged uncommitted — cadence-deferred from 2026-05-19 |
+| 2026-05-20 | service-area | tree-trimming-cypress-tx | tree trimming cypress tx | Staged uncommitted — cadence-deferred from 2026-05-19 (swapped in for already-live lawn-mowing-tomball-tx) |
 
 ## Status
 
